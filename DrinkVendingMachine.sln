@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVM.App", "DVM.App\DVM.App.csproj", "{96987424-28B3-4AD0-AA0B-FBAD6E18DD88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVM.API", "DVM.API\DVM.API.csproj", "{FD62A243-00C5-444D-B5D6-A4F2C079FE8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96987424-28B3-4AD0-AA0B-FBAD6E18DD88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96987424-28B3-4AD0-AA0B-FBAD6E18DD88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96987424-28B3-4AD0-AA0B-FBAD6E18DD88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96987424-28B3-4AD0-AA0B-FBAD6E18DD88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD62A243-00C5-444D-B5D6-A4F2C079FE8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD62A243-00C5-444D-B5D6-A4F2C079FE8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD62A243-00C5-444D-B5D6-A4F2C079FE8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD62A243-00C5-444D-B5D6-A4F2C079FE8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C621B4E4-7146-4F17-8BE0-DC49E5FE2087}
+	EndGlobalSection
+EndGlobal
