@@ -7,10 +7,9 @@ namespace DVM.API.Services.IServices
 {
     public interface IDrinkService //переделать в базе на uniqueidentificator
     {
-        void AddDrink(DrinkDb drink);
+        void SaveDrink(DrinkDb drink);
         List<Drink> GetAllDrinks();
-        Drink GetDrinkById(Int32 id);
-        void EditDrink(DrinkDb drink);
+        Drink GetDrinkById(Guid id);
         void RemoveDrink(DrinkDb drink);
     }
 }

@@ -59,5 +59,25 @@ namespace DVM.API.Services.SQL {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на INSERT INTO drink
+        ///VALUES(
+        ///@p_id,
+        ///@p_name,
+        ///@p_image,
+        ///@p_cost)
+        ///ON CONFLICT(id) DO
+        ///UPDATE drink
+        ///SET
+        ///name = @p_name,
+        ///image = @p_image,
+        ///cost = @p_cost.
+        /// </summary>
+        internal static string Drink_SaveDrink {
+            get {
+                return ResourceManager.GetString("Drink_SaveDrink", resourceCulture);
+            }
+        }
     }
 }
