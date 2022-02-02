@@ -4,10 +4,10 @@ namespace DVM.API.Models.Domain
 {
     public class VendingMachine
     {
-        public Int32 Id { get; }
+        public Guid? Id { get; }
         public String SecretCode { get; }
 
-        public VendingMachine(Int32 id, String secretCode)
+        public VendingMachine(Guid id, String secretCode)
         {
             Id = id;
             SecretCode = secretCode;
