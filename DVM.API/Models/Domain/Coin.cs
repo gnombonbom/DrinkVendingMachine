@@ -2,7 +2,7 @@
 
 namespace DVM.API.Models.Domain
 {
-    class Coin
+    public class Coin
     {
         public Guid Id { get; }
         public Int32 Denomination { get; }

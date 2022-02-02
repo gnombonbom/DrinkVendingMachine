@@ -61,6 +61,35 @@ namespace DVM.API.Services.SQL {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на DELETE FROM drink
+        ///WHERE id = @p_id.
+        /// </summary>
+        internal static string Drink_DeleteDrink {
+            get {
+                return ResourceManager.GetString("Drink_DeleteDrink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на SELECT * FROM drinks.
+        /// </summary>
+        internal static string Drink_GetAllDrinks {
+            get {
+                return ResourceManager.GetString("Drink_GetAllDrinks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на SELECT * FROM drink
+        ///WHERE id = @p_id.
+        /// </summary>
+        internal static string Drink_GetDrinkById {
+            get {
+                return ResourceManager.GetString("Drink_GetDrinkById", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на INSERT INTO drink
         ///VALUES(
         ///@p_id,
@@ -72,11 +101,77 @@ namespace DVM.API.Services.SQL {
         ///SET
         ///name = @p_name,
         ///image = @p_image,
-        ///cost = @p_cost.
+        ///cost = @p_cost
+        ///WHERE id = @p_id.
         /// </summary>
         internal static string Drink_SaveDrink {
             get {
                 return ResourceManager.GetString("Drink_SaveDrink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DELETE FROM vendingmachine
+        ///WHERE id = @p_id.
+        /// </summary>
+        internal static string VendingMachine_DeleteMachine {
+            get {
+                return ResourceManager.GetString("VendingMachine_DeleteMachine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на SELECT * FROM vendingmachine.
+        /// </summary>
+        internal static string VendingMachine_GetAllMachines {
+            get {
+                return ResourceManager.GetString("VendingMachine_GetAllMachines", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на INSERT INTO vendingmachine
+        ///VALUES (@p_id, @p_secretcode)
+        ///ON CONFLICT(id) DO
+        ///UPDATE vendingmachine
+        ///SET
+        ///secretcode = @p_secretcode
+        ///WHERE id = @p_id.
+        /// </summary>
+        internal static string VendingMachine_SaveMachine {
+            get {
+                return ResourceManager.GetString("VendingMachine_SaveMachine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на SELECT * FROM vmdrink
+        ///WHERE id = @p_id.
+        /// </summary>
+        internal static string VMDrink_GetVMDrinksByVMId {
+            get {
+                return ResourceManager.GetString("VMDrink_GetVMDrinksByVMId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на INSERT INTO vmdrink
+        ///VALUES (
+        ///@p_id,
+        ///@p_vmid,
+        ///@p_drinkid,
+        ///@p_count)
+        ///ON CONFLICT(id) DO
+        ///UPDATE vmdrink
+        ///SET 
+        ///vmid = @p_vmid,
+        ///drinkid = @p_drinkid,
+        ///count = @p_count
+        ///WHERE id = @p_id.
+        /// </summary>
+        internal static string VMDrink_SaveVMDrink {
+            get {
+                return ResourceManager.GetString("VMDrink_SaveVMDrink", resourceCulture);
             }
         }
     }

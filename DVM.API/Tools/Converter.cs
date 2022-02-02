@@ -19,9 +19,25 @@ namespace DVM.API.Tools
             return drinks;
         }
 
-        private static Drink ConvertToDrink(DrinkDb drink)
+        public static Drink ConvertToDrink(DrinkDb drink)
         {
             return new Drink(drink.Id, drink.Name, drink.Image, drink.Cost);
         }
+
+        public static List<VendingMachine> ConvertToVMs(List<VendingMachineDb> VMDbs)
+        {
+            List<VendingMachine> VMs = new();
+            foreach (VendingMachineDb VMDb in VMDbs)
+                VMs.Add(ConvertToVM(VMDb));
+
+            return VMs;
+        }
+
+        public static VendingMachine ConvertToVM(VendingMachineDb VMDb)
+        {
+            return new VendingMachine(VMDb.Id, VMDb.SecretCode);
+        }
+
+        
     }
 }

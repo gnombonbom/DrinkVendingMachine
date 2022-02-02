@@ -5,11 +5,6 @@ using DVM.API.Tools;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace DVM.API.Services
 {
@@ -45,17 +40,74 @@ namespace DVM.API.Services
 
         public List<Drink> GetAllDrinks()
         {
-            throw new NotImplementedException();
+            using (SqlConnection connect = new(_connectionString))
+            {
+                connect.Open();
+                SqlCommand cmd = new(SQL.Sql.Drink_GetAllDrinks, connect);
+
+                List<DrinkDb> drinksDb = new();
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DrinkDb drinkDb = new()
+                        {
+                            Id = (Guid)reader["id"],
+                            Name = (String)reader["name"],
+                            Image = (Byte[])reader["image"],
+                            Cost = (Int32)reader["cost"]
+                        };
+                        drinksDb.Add(drinkDb);
+                    }
+                }
+
+                return Converter.ConvertToDrinks(drinksDb);
+            }
         }
 
         public Drink GetDrinkById(Guid id)
         {
-            throw new NotImplementedException();
+            if (id == Guid.Empty)
+                throw new ErrorException();
+
+            using (SqlConnection connect = new(_connectionString))
+            {
+                connect.Open();
+                SqlCommand cmd = new(SQL.Sql.Drink_GetDrinkById, connect);
+                cmd.Parameters.AddWithValue("@p_id", id);
+
+                DrinkDb drinkDb = new();
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        drinkDb = new()
+                        {
+                            Id = (Guid)reader["id"],
+                            Name = (String)reader["name"],
+                            Image = (Byte[])reader["image"],
+                            Cost = (Int32)reader["cost"]
+                        };
+                    }
+                }
+
+                return Converter.ConvertToDrink(drinkDb);
+            }
         }
 
-        public void RemoveDrink(DrinkDb drink)
+        public void RemoveDrink(Guid id)
         {
-            throw new NotImplementedException();
+            if (id == Guid.Empty)
+                throw new ErrorException();
+
+            using (SqlConnection connect = new(_connectionString))
+            {
+                connect.Open();
+                SqlCommand cmd = new(SQL.Sql.Drink_DeleteDrink, connect);
+                cmd.Parameters.AddWithValue("@p_id", id);
+
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

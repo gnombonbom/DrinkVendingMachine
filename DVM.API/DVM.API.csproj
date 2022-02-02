@@ -20,11 +20,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\SQL\Drink\" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+    <Resource Include="Services\SQL\Drink\Drink_DeleteDrink.sql" />
+    <Resource Include="Services\SQL\Drink\Drink_GetAllDrinks.sql" />
+    <Resource Include="Services\SQL\Drink\Drink_GetDrinkById.sql" />
+    <Resource Include="Services\SQL\Drink\Drink_SaveDrink.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\SQL\VendingMachine\" />
+    <Folder Include="Services\SQL\VMDrink\" />
   </ItemGroup>
 
 </Project>

@@ -118,7 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Drink_DeleteDrink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>drink\drink_deletedrink.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="Drink_GetAllDrinks" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>drink\drink_getalldrinks.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="Drink_GetDrinkById" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>drink\drink_getdrinkbyid.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
   <data name="Drink_SaveDrink" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>drink\drink_savedrink.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="VendingMachine_DeleteMachine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>vendingmachine\vendingmachine_deletemachine.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="VendingMachine_GetAllMachines" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>vendingmachine\vendingmachine_getallmachines.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="VendingMachine_SaveMachine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>vendingmachine\vendingmachine_savemachine.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="VMDrink_GetVMDrinksByVMId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>vmdrink\vmdrink_getvmdrinksbyvmid.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="VMDrink_SaveVMDrink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>vmdrink\vmdrink_savevmdrink.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
 </root>

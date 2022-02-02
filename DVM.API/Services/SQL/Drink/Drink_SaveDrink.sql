@@ -10,3 +10,4 @@ SET
 name = @p_name,
 image = @p_image,
 cost = @p_cost
+WHERE id = @p_id
