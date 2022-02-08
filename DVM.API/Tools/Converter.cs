@@ -38,6 +38,36 @@ namespace DVM.API.Tools
             return new VendingMachine(VMDb.Id, VMDb.SecretCode);
         }
 
+        public static List<VMDrink> ConvertToVMDrinks(List<VMDrinkDb> VMDrinksDb, List<Drink> drinks)
+        {
+            List<VMDrink> VMDrinks = new();
+            for (Int32 count = 0; count < VMDrinksDb.Count; count++)
+            {
+                VMDrinks.Add(ConvertToVMDrink(VMDrinksDb[count], drinks[count]));
+            }
+
+            return VMDrinks;
+        }
+
+        public static VMDrink ConvertToVMDrink(VMDrinkDb VMDrinkDb, Drink drink)
+        {
+            return new VMDrink(VMDrinkDb.Id, VMDrinkDb.VMId, drink, VMDrinkDb.Count);
+        }
+
+        public static List<VMCoin> ConvertToVMCoins(List<VMCoinDB> VMCoinDbs, List<Coin> coins)
+        {
+            List<VMCoin> VMCoins = new();
+            for (Int32 count = 0; count < VMCoinDbs.Count; count++)
+                VMCoins.Add(ConvertToVMCoin(VMCoinDbs[count], coins[count]));
+
+            return VMCoins;
+
+        }
+
+        public static VMCoin ConvertToVMCoin(VMCoinDB coinDb, Coin coin)
+        {
+            return new VMCoin(coinDb.Id, coinDb.VMId, coin, coinDb.Count, coinDb.IsActive);
+        }
         
     }
 }

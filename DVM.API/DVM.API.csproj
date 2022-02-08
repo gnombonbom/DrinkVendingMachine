@@ -33,6 +33,7 @@
   <ItemGroup>
     <Folder Include="Services\SQL\VendingMachine\" />
     <Folder Include="Services\SQL\VMDrink\" />
+    <Folder Include="Services\SQL\VMCoin\" />
   </ItemGroup>
 
 </Project>

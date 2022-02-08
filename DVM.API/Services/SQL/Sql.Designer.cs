@@ -61,6 +61,16 @@ namespace DVM.API.Services.SQL {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на SELECT * FROM coin
+        ///WHERE id = @p_id;.
+        /// </summary>
+        internal static string Coin_GetCoinById {
+            get {
+                return ResourceManager.GetString("Coin_GetCoinById", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на DELETE FROM drink
         ///WHERE id = @p_id.
         /// </summary>
@@ -145,12 +155,32 @@ namespace DVM.API.Services.SQL {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на SELECT * FROM vmcoin
+        ///WHERE vmid = @p_id;.
+        /// </summary>
+        internal static string VMCoin_GetVMCoinsByVMId {
+            get {
+                return ResourceManager.GetString("VMCoin_GetVMCoinsByVMId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на SELECT * FROM vmdrink
         ///WHERE id = @p_id.
         /// </summary>
         internal static string VMDrink_GetVMDrinksByVMId {
             get {
                 return ResourceManager.GetString("VMDrink_GetVMDrinksByVMId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на DELETE FROM vmdrink
+        ///WHERE id = @p_id;.
+        /// </summary>
+        internal static string VMDrink_RemoveVMDrink_sql {
+            get {
+                return ResourceManager.GetString("VMDrink_RemoveVMDrink_sql", resourceCulture);
             }
         }
         

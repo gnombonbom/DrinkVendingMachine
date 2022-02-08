@@ -5,9 +5,6 @@ using DVM.API.Tools;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DVM.API.Services
 {
@@ -43,37 +40,56 @@ namespace DVM.API.Services
 
         public List<VMDrink> GetVMDrinksByVMId(Guid id)
         {
-            //if (id == Guid.Empty)
-            //    throw new ErrorException();
+            if (id == Guid.Empty)
+                throw new ErrorException();
 
-            //using (SqlConnection connect = new(_connectionString))
-            //{
-            //    connect.Open();
-            //    SqlCommand cmd = new(SQL.Sql.VMDrink_GetVMDrinksByVMId, connect);
-            //    cmd.Parameters.AddWithValue("@p_id", id);
+            using (SqlConnection connect = new(_connectionString))
+            {
+                connect.Open();
+                SqlCommand cmd = new(SQL.Sql.VMDrink_GetVMDrinksByVMId, connect);
+                cmd.Parameters.AddWithValue("@p_id", id);
 
-            //    List<VMDrinkDb> VMDrinksDb = new();
-            //    using (var reader = cmd.ExecuteReader())
-            //    {
-            //        while (reader.Read())
-            //        {
-            //            VMDrinkDb VMDrinkDb = new()
-            //            {
-            //                Id = (Guid)reader["id"],
-            //                VMId = (Guid)reader["vmid"],
-            //                DrinkId = (Guid)reader["drinkid"],
-            //                Count = (Int32)reader["count"]
-            //            };
-            //            VMDrinksDb.Add(VMDrinkDb);
-            //        }
-            //    }
-            //}
-            throw new NotImplementedException();
+                List<VMDrinkDb> VMDrinksDb = new();
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        VMDrinkDb VMDrinkDb = new()
+                        {
+                            Id = (Guid)reader["id"],
+                            VMId = (Guid)reader["vmid"],
+                            DrinkId = (Guid)reader["drinkid"],
+                            Count = (Int32)reader["count"]
+                        };
+                        VMDrinksDb.Add(VMDrinkDb);
+                    }
+                }
+
+                List<Drink> drinks = new();
+                DrinkService drinkService = new();
+                for (Int32 count = 0; count < VMDrinksDb.Count; count++)
+                {
+                    Drink drinkDb = drinkService.GetDrinkById(VMDrinksDb[count].Id);
+                    drinks.Add(drinkDb);
+                }
+
+                return Converter.ConvertToVMDrinks(VMDrinksDb, drinks);
+            }
         }
 
         public void RemoveVMDrink(Guid id)
         {
-            throw new NotImplementedException();
+            if (id == Guid.Empty)
+                throw new ErrorException();
+
+            using (SqlConnection connect = new(_connectionString))
+            {
+                connect.Open();
+                SqlCommand cmd = new(SQL.Sql.VMDrink_RemoveVMDrink_sql, connect);
+                cmd.Parameters.AddWithValue("@p_id", id);
+
+                cmd.ExecuteNonQuery();
+            }
         }
 
     }
