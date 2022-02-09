@@ -1,0 +1,118 @@
+﻿<Page x:Class="DVM.App.Pages.VendingMachinePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DVM.App.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="420" d:DesignWidth="1024"
+      Title="VendingMachinePage"
+      FontFamily="Arial">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="350"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- Content -->
+        <ListView Grid.Column="0"
+                  BorderThickness="0"
+                  x:Name="VMDrinkList"
+                  SelectedValuePath="{Binding Path=Id}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="3"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="190">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                        </Grid.RowDefinitions>
+                        <Border Grid.RowSpan="3"
+                                BorderThickness="1"
+                                BorderBrush="#363435">
+
+
+                            <StackPanel Grid.Row="1"
+                                        Grid.RowSpan="2"
+                                        Margin="3">
+                                <Label Content="{Binding Path=Drink.Name}" />
+                                <Label Content="{Binding Path=Drink.Cost}" />
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        <!-- SideBar -->
+        <StackPanel Grid.Column="1">
+            <!-- Panel -->
+            <Grid Height="300">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="3"
+                           Grid.Column="1"
+                           Content="Баланс:"
+                           FontSize="24"/>
+                </Grid>
+
+                <ListView Grid.Column="1"
+                          BorderThickness="0"
+                          x:Name="coinList"
+                          SelectedValuePath="{Binding Path=Coin.Id}">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="1"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding Path=Coin.Denomination}"
+                                    Style="{StaticResource coinButton}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+            </Grid>
+
+            <!-- Buttons -->
+            <Grid Height="120">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="15"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="35"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+</Page>
