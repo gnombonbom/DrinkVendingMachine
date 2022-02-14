@@ -10,7 +10,7 @@ namespace DVM.API.Services
 {
     public class VMDrinkService : IVMDrinkService
     {
-        private String _connectionString = @"Data Source=DESKTOP-9SV6HT1\SQLEXPRESS;Initial Catalog=DrinkVendingMachine;Integrated Security=True";
+        private String _connectionString = @"Data Source=Mikhuil;Initial Catalog=DrinkVendingMachine;Integrated Security=True";
 
         public void SaveVMDrink(VMDrinkDb vmDrink)
         {
@@ -69,7 +69,7 @@ namespace DVM.API.Services
                 DrinkService drinkService = new();
                 for (Int32 count = 0; count < VMDrinksDb.Count; count++)
                 {
-                    Drink drinkDb = drinkService.GetDrinkById(VMDrinksDb[count].Id);
+                    Drink drinkDb = drinkService.GetDrinkById(VMDrinksDb[count].DrinkId);
                     drinks.Add(drinkDb);
                 }
 

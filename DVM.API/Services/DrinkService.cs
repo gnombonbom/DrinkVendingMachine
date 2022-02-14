@@ -10,7 +10,7 @@ namespace DVM.API.Services
 {
     public class DrinkService : IDrinkService
     {
-        private String _connectionString = @"Data Source=DESKTOP-9SV6HT1\SQLEXPRESS;Initial Catalog=DrinkVendingMachine;Integrated Security=True";
+        private String _connectionString = @"Data Source=Mikhuil;Initial Catalog=DrinkVendingMachine;Integrated Security=True";
 
         public void SaveDrink(DrinkDb drink)
         {

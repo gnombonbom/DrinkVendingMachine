@@ -15,6 +15,6 @@ namespace DVM.API.Controllers
         public List<VMCoin> GetVMCoins(Guid id)
         {
             return _service.GetVMCoinsByVMId(id);
-        }
+        } 
     }
 }

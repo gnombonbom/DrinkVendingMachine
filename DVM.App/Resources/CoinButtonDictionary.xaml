@@ -6,5 +6,6 @@
         <Setter Property="Height" Value="60" />
         <Setter Property="Background" Value="#FFDF00" />
         <Setter Property="FontSize" Value="18" />
+        <Setter Property="Focusable" Value="False" />
     </Style>
 </ResourceDictionary>

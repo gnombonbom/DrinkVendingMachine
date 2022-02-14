@@ -10,7 +10,7 @@ namespace DVM.API.Services
 {
     public class VendingMachineService : IVendingMachineService
     {
-        private String _connectionString = @"Data Source=DESKTOP-9SV6HT1\SQLEXPRESS;Initial Catalog=DrinkVendingMachine;Integrated Security=True";
+        private String _connectionString = @"Data Source=Mikhuil;Initial Catalog=DrinkVendingMachine;Integrated Security=True";
 
         public void SaveMachine(VendingMachineDb VMDb)
         {
@@ -52,6 +52,31 @@ namespace DVM.API.Services
                 }
                 return Converter.ConvertToVMs(VMDbs);
             }
+        }
+
+        public VendingMachine GetVendingMachineBySecretCode(String code)
+        {
+            using (SqlConnection connect = new(_connectionString))
+            {
+                connect.Open();
+                SqlCommand cmd = new(SQL.Sql.VendingMachine_GetVendingMachineBySecretCode, connect);
+                cmd.Parameters.AddWithValue("@p_secretcode", code);
+
+                VendingMachineDb VMDb = new();
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        VMDb = new()
+                        {
+                            Id = (Guid)reader["id"],
+                            SecretCode = (String)reader["secretcode"]
+                        };
+                    }
+                }
+                return Converter.ConvertToVM(VMDb);
+            }
+            
         }
 
         public void RemoveMachine(Guid id)

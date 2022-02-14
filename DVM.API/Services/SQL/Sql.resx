@@ -139,6 +139,9 @@
   <data name="VendingMachine_GetAllMachines" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>vendingmachine\vendingmachine_getallmachines.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
+  <data name="VendingMachine_GetVendingMachineBySecretCode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>vendingmachine\vendingmachine_getvendingmachinebysecretcode.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
   <data name="VendingMachine_SaveMachine" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>vendingmachine\vendingmachine_savemachine.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>

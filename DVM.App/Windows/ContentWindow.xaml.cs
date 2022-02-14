@@ -19,9 +19,26 @@ namespace DVM.App.Windows
     /// </summary>
     public partial class ContentWindow : Window
     {
+        public CodeWindow codeWindow = new();
+        public static String code;
         public ContentWindow()
         {
             InitializeComponent();
+        }
+
+        public void Open()
+        {
+            codeWindow.ShowDialog();
+        }
+
+        public void ChangeFrame(String source)
+        {
+            mainFrame.NavigationService.Navigate(new Uri(source, UriKind.Relative));
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            codeWindow.Owner = this;
         }
     }
 }

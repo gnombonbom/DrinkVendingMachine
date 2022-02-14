@@ -1,2 +1,2 @@
 SELECT * FROM vmdrink
-WHERE id = @p_id
+WHERE vmid = @p_id

@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:DVM.App"
              StartupUri="Windows/ContentWindow.xaml">
     <Application.Resources>
-        <ResourceDictionary Source="Resources/CoinButtonDictionary.xaml" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CoinButtonDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

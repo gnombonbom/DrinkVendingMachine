@@ -19,7 +19,7 @@ namespace DVM.API.Services.SQL {
     // с помощью такого средства, как ResGen или Visual Studio.
     // Чтобы добавить или удалить член, измените файл .ResX и снова запустите ResGen
     // с параметром /str или перестройте свой проект VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Sql {
@@ -140,6 +140,16 @@ namespace DVM.API.Services.SQL {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на SELECT * FROM vendingmachine
+        ///where secretcode = @p_secretcode;.
+        /// </summary>
+        internal static string VendingMachine_GetVendingMachineBySecretCode {
+            get {
+                return ResourceManager.GetString("VendingMachine_GetVendingMachineBySecretCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на INSERT INTO vendingmachine
         ///VALUES (@p_id, @p_secretcode)
         ///ON CONFLICT(id) DO
@@ -166,7 +176,7 @@ namespace DVM.API.Services.SQL {
         
         /// <summary>
         ///   Ищет локализованную строку, похожую на SELECT * FROM vmdrink
-        ///WHERE id = @p_id.
+        ///WHERE vmid = @p_id.
         /// </summary>
         internal static string VMDrink_GetVMDrinksByVMId {
             get {

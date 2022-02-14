@@ -19,6 +19,7 @@
         <ListView Grid.Column="0"
                   BorderThickness="0"
                   x:Name="VMDrinkList"
+                  Background="#e1e3e1"
                   SelectedValuePath="{Binding Path=Id}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -28,25 +29,25 @@
             
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Height="190">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition Height="25"/>
-                            <RowDefinition Height="25"/>
-                        </Grid.RowDefinitions>
-                        <Border Grid.RowSpan="3"
-                                BorderThickness="1"
-                                BorderBrush="#363435">
+                    <Border BorderThickness="1"
+                            Background="White"
+                            BorderBrush="#373737"
+                            CornerRadius="20"
+                            Width="200"
+                            Height="200">
+                        <StackPanel>
+                            <Image Source="{Binding Path=Drink.Image}"
+                                   Width="120"
+                                   Height="150"/>
+                            <Label Content="{Binding Path=Drink.Name}"
+                                   HorizontalAlignment="Center"
+                                   FontSize="14"/>
+                            <Label Content="{Binding Path=Drink.Cost}"
+                                   HorizontalAlignment="Center"
+                                   FontSize="16"/>
+                        </StackPanel>
 
-
-                            <StackPanel Grid.Row="1"
-                                        Grid.RowSpan="2"
-                                        Margin="3">
-                                <Label Content="{Binding Path=Drink.Name}" />
-                                <Label Content="{Binding Path=Drink.Cost}" />
-                            </StackPanel>
-                        </Border>
-                    </Grid>
+                    </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -91,7 +92,8 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Button Content="{Binding Path=Coin.Denomination}"
-                                    Style="{StaticResource coinButton}"/>
+                                    Style="{StaticResource coinButton}"
+                                    Click="Button_Click"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
@@ -103,7 +105,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="15"/>
-                    <RowDefinition/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="15"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -111,6 +113,20 @@
                     <ColumnDefinition Width="15"/>
                     <ColumnDefinition Width="35"/>
                 </Grid.ColumnDefinitions>
+                
+                <Button x:Name="puchareButton"
+                        Content="Выдать сдачу"
+                        Width="200"
+                        FontSize="24"/>
+
+                <Button x:Name="adminButton"
+                        Grid.Row="2"
+                        Grid.Column="3"
+                        Content="→"
+                        Height="20"
+                        Width="20"
+                        Click="adminButton_Click"
+                        FontSize="18"/>
             </Grid>
         </StackPanel>
 

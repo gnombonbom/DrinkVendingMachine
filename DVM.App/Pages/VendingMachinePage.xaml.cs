@@ -1,5 +1,6 @@
 ﻿using DVM.API.Controllers;
 using DVM.API.Models.Domain;
+using DVM.App.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace DVM.App.Pages
         private VMDrinkController _VMDcontroller = new();
         private VMCoinController _VMCcontroller = new();
 
+        public static VendingMachine vm;
         public VendingMachinePage()
         {
             InitializeComponent();
@@ -38,6 +40,23 @@ namespace DVM.App.Pages
             VMDrinkList.ItemsSource = drinks;
             List<VMCoin> coins = _VMCcontroller.GetVMCoins(_VmId);
             coinList.ItemsSource = coins;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+                        
+        }
+
+        private void adminButton_Click(object sender, RoutedEventArgs e)
+        {
+            CodeWindow cw = new();
+            cw.ShowDialog();
+
+            if (vm.SecretCode == null || vm.SecretCode == "")
+                return;
+
+            ContentWindow conW = new();
+            conW.ChangeFrame("../Pages/AdminPage.xaml");
         }
     }
 }
