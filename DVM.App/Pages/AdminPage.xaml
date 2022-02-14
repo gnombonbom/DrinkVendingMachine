@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DVM.App.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="1024"
       Title="AdminPage">
 
     <Grid Background="White">
@@ -16,6 +16,47 @@
                         <RowDefinition/>
                         <RowDefinition Height="150"/>
                     </Grid.RowDefinitions>
+
+                    <ListView Grid.Column="0"
+                              BorderThickness="0"
+                              x:Name="VMDrinkList"
+                              Background="#e1e3e1"
+                              SelectedValuePath="{Binding Path=Id}">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="3"/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderThickness="1"
+                                        Background="White"
+                                        BorderBrush="#373737"
+                                        CornerRadius="20"
+                                        Width="200"
+                                        Height="200">
+                                    <StackPanel>
+                                        <Image Source="{Binding Path=Drink.Image}"
+                                               Width="120"
+                                               Height="150"/>
+                                        <Label Content="{Binding Path=Drink.Name}"
+                                               HorizontalAlignment="Center"
+                                               FontSize="14"/>
+                                        <Label Content="{Binding Path=Drink.Cost}"
+                                               HorizontalAlignment="Center"
+                                               FontSize="16"/>
+                                    </StackPanel>
+
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button x:Name="addDrinkButton"
+                            Content="Добавить"
+                            Grid.Row="1"
+                            Width="100"
+                            Height="25"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Монеты">
